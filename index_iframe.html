@@ -1,4 +1,73 @@
+<script>
+    window.web = "Electro Casa";
+    window.subtitulo = "Impulsamos un futuro con energía renovable, movilidad eléctrica y un consumo eficiente para un planeta más sostenible.";
 
+    window.web = "Watt Bucket";
+    window.subtitulo = "Diseña instalaciones fotovoltaicas con precisión y lleva la energía renovable a cada rincón. Más sostenibilidad, más ahorro, más futuro.";
+
+    window.web = "Mercado de Ahorro Energético";
+    window.subtitulo = "Consigue un precio lo más cercano posible al valor financiero establecido por el Gobierno de España (en 2024 fue superior a 182 €/MWh).";
+
+    window.web = "Calculadora de Ahorro Energético";
+    window.subtitulo = "Segun el catálogo de fichas de actuaciones  estandarizadas. <a href='https://www.miteco.gob.es/es/energia/eficiencia/cae/catalogo-de-fichas.html'>Catálogo</a>";
+
+    window.web = "Asolear Energia";
+    window.subtitulo = "Segun el catálogo de fichas de actuaciones  estandarizadas. <a href='https://www.miteco.gob.es/es/energia/eficiencia/cae/catalogo-de-fichas.html'>Catálogo</a>";
+
+    window.web = "Documentos Técnicos";
+    window.subtitulo = "Configura tu Proyecto, informe o estudio a medida.";
+
+    window.web = "Tramitador Electrónico de Calculo Industrial";
+    window.subtitulo = "Modelos de certificados, estudios, informes y proyectos a medida.";
+
+    window.web = "Calculadora de Ahorro Energético";
+    window.subtitulo = "Segun el catálogo de fichas de actuaciones  estandarizadas. <a href='https://www.miteco.gob.es/es/energia/eficiencia/cae/catalogo-de-fichas.html'>Catálogo</a>";
+
+
+    window.keywords = keywords = [
+        "instalación paneles solares",
+        "asesoría energías renovables",
+        "diseño proyectos energías renovables",
+        "instalación paneles solares",
+        "instalación energía fotovoltaica",
+        "energía renovable solar",
+        "energía renovable eólica",
+        "energía solar fotovoltaica",
+        "soluciones energéticas sostenibles",
+        "consultoría energía renovable",
+        "proyectos energía renovable",
+        "instalación baterías coches eléctricos",
+        "eficiencia energética en viviendas",
+        "eficiencia energética empresas",
+        "ahorro energético en hogares",
+        "asesoría energética para empresas",
+        "energías limpias",
+        "sistemas fotovoltaicos",
+        "energía solar para empresas",
+        "energía solar residencial",
+        "energía eólica para empresas",
+        "energía limpia y renovable",
+        "energía verde",
+        "soluciones solares a medida",
+        "instalación de cargadores eléctricos",
+        "optimización energética",
+        "paneles solares para viviendas",
+        "sistemas de energía autónoma",
+        "baterías para almacenamiento de energía",
+        "energía renovable para empresas",
+        "ahorro de electricidad",
+        "energías alternativas",
+        "transición energética",
+        "vehículos eléctricos y energías renovables",
+        "sostenibilidad energética",
+        "soluciones fotovoltaicas personalizadas",
+        "instalaciones eólicas para empresas",
+        "eficiencia energética en proyectos industriales",
+        "sistemas de energía renovable para empresas"
+    ]
+
+
+</script>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -162,8 +231,15 @@
     <div class="container">
 
         <div class="title"><span id="web2"></span></div>
-        <a id="dynamic-link" href="#" class="btn">Entrar</a>
+        <a id="dynamic-link" href="#" class="btn" onclick="openFullscreenIframe(event)">Entrar</a>
 
+        <div id="fullscreen-iframe-container"
+            style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.9); z-index:10000;">
+            <iframe id="fullscreen-iframe" style="width:100%; height:100%; border:none;"></iframe>
+            <!-- <button onclick="closeFullscreenIframe()"
+                style="position:absolute; top:10px; right:10px; padding:10px 20px; background:#1976D2; color:white; border:none; border-radius:5px; cursor:pointer;">Cerrar
+            </button> -->
+        </div>
         <div class="subtitle"><span id="subtitulo"></div>
     </div>
     <footer>
@@ -193,8 +269,10 @@
             </br><a href="https://wattbucket.com/">wattbucket.com</a>
 
 
-            <hr> <button onclick="closeModal_()"
-                style="margin-top:10px; padding:10px 20px; background:#1976D2; color:white; border:none; border-radius:5px;">Cerrar</button>
+            <hr>
+            <button onclick="closeModal_()"
+                style="margin-top:10px; padding:10px 20px; background:#1976D2; color:white; border:none; border-radius:5px;">Cerrar
+            </button>
         </div>
     </div>
 
@@ -311,35 +389,7 @@
 
 
             <p>
-               
-Técnicas de Evaluación de Certificación Industrial (TECI) desarrolla los procedimientos y metodologías utilizadas para evaluar el cumplimiento de estándares y normativas en el ámbito industrial, específicamente relacionados con la eficiencia energética, seguridad, y sostenibilidad. Estos procesos se realizan con el fin de obtener certificaciones que validen que una instalación, proceso o producto cumple con requisitos técnicos y medioambientales.
-
-</p>
-<p>
-Algunos aspectos clave en estas técnicas son:
-</p><p>
-
-Evaluación de Cumplimiento Normativo: Análisis de los estándares industriales aplicables (como ISO, UNE, entre otros) relacionados con la eficiencia energética, calidad, seguridad y el impacto ambiental de los procesos industriales.
-</p><p>
-
-Auditorías Energéticas: Procedimientos para medir y analizar el consumo energético en instalaciones industriales, identificar áreas de mejora y proponer soluciones para optimizar el uso de la energía.
-</p><p>
-
-Certificación en Gestión Energética: Evaluación para obtener certificaciones como ISO 50001, que demuestra la implementación de un sistema de gestión de la energía efectivo en la organización.
-</p><p>
-
-Evaluación del Impacto Ambiental: Estudio del impacto que las actividades industriales tienen sobre el medio ambiente, que incluye la medición de emisiones, consumo de recursos naturales, y otros factores relevantes. Las certificaciones medioambientales, como la ISO 14001, pueden ser el resultado de este tipo de evaluación.
-</p><p>
-
-Evaluación de la Eficiencia de los Procesos Industriales: Análisis detallado de los procesos de producción para identificar posibles ineficiencias o puntos de mejora que permitan reducir costos y mejorar el rendimiento, a la vez que se cumplen los estándares de sostenibilidad y eficiencia energética.
-</p><p>
-
-Tramitación de Licencias y Certificados: Procedimiento para gestionar y obtener las licencias necesarias para operar dentro de la legalidad, lo que incluye la evaluación de los documentos, la tramitación de permisos de funcionamiento y la obtención de los certificados que avalen el cumplimiento de normativas.
-</p><p>
-
-En resumen, TECI implementa las técnicas y procesos utilizados en la evaluación y certificación de la industria para asegurar que los estándares de eficiencia energética, seguridad y sostenibilidad sean cumplidos, permitiendo así que las empresas y particulares obtengan las certificaciones necesarias para operar y ser reconocidas por su cumplimiento normativo.</p>
-
-
+                ¡Hablemos de cómo podemos construir juntos un mundo más eficiente y limpio!</p>
 
             <button onclick="closeModalAcercade()"
                 style="margin-top:10px; padding:10px 20px; background:#1976D2; color:white; border:none; border-radius:5px;">Cerrar</button>
@@ -356,74 +406,6 @@ En resumen, TECI implementa las técnicas y procesos utilizados en la evaluació
                 style="margin-top:10px; padding:10px 20px; background:#1976D2; color:white; border:none; border-radius:5px;">Aceptar</button>
         </div>
     </div>
-
-    <script>
-        window.web = "Electro Casa";
-        window.subtitulo = "Impulsamos un futuro con energía renovable, movilidad eléctrica y un consumo eficiente para un planeta más sostenible.";
-    
-        window.web = "Watt Bucket";
-        window.subtitulo = "Diseña instalaciones fotovoltaicas con precisión y lleva la energía renovable a cada rincón. Más sostenibilidad, más ahorro, más futuro.";
-    
-        window.web = "Mercado de Ahorro Energético";
-        window.subtitulo = "Consigue un precio lo más cercano posible al valor financiero establecido por el Gobierno de España (en 2024 fue superior a 182 €/MWh).";
-    
-        window.web = "Calculadora de Ahorro Energético";
-        window.subtitulo = "Segun el catálogo de fichas de actuaciones  estandarizadas. <a href='https://www.miteco.gob.es/es/energia/eficiencia/cae/catalogo-de-fichas.html'>Catálogo</a>";
-    
-        window.web = "Asolear Energia";
-        window.subtitulo = "Segun el catálogo de fichas de actuaciones  estandarizadas. <a href='https://www.miteco.gob.es/es/energia/eficiencia/cae/catalogo-de-fichas.html'>Catálogo</a>";
-    
-        window.web = "Documentos Técnicos";
-        window.subtitulo = "Configura tu Proyecto, informe o estudio a medida.";
-    
-        window.web = "Tramitador Electrónico de Calculo Industrial";
-        window.subtitulo = "Modelos de certificados, estudios, informes y proyectos a medida.";
-    
-    
-        window.keywords = keywords = [
-            "instalación paneles solares",
-            "asesoría energías renovables",
-            "diseño proyectos energías renovables",
-            "instalación paneles solares",
-            "instalación energía fotovoltaica",
-            "energía renovable solar",
-            "energía renovable eólica",
-            "energía solar fotovoltaica",
-            "soluciones energéticas sostenibles",
-            "consultoría energía renovable",
-            "proyectos energía renovable",
-            "instalación baterías coches eléctricos",
-            "eficiencia energética en viviendas",
-            "eficiencia energética empresas",
-            "ahorro energético en hogares",
-            "asesoría energética para empresas",
-            "energías limpias",
-            "sistemas fotovoltaicos",
-            "energía solar para empresas",
-            "energía solar residencial",
-            "energía eólica para empresas",
-            "energía limpia y renovable",
-            "energía verde",
-            "soluciones solares a medida",
-            "instalación de cargadores eléctricos",
-            "optimización energética",
-            "paneles solares para viviendas",
-            "sistemas de energía autónoma",
-            "baterías para almacenamiento de energía",
-            "energía renovable para empresas",
-            "ahorro de electricidad",
-            "energías alternativas",
-            "transición energética",
-            "vehículos eléctricos y energías renovables",
-            "sostenibilidad energética",
-            "soluciones fotovoltaicas personalizadas",
-            "instalaciones eólicas para empresas",
-            "eficiencia energética en proyectos industriales",
-            "sistemas de energía renovable para empresas"
-        ]
-    
-    
-    </script>
 
     <script>
         // Verifica si el usuario ya ha aceptado las cookies
@@ -491,6 +473,30 @@ En resumen, TECI implementa las técnicas y procesos utilizados en la evaluació
 
 
     </script>
+    <script>
+        function openFullscreenIframe(event) {
+            event.preventDefault(); // Prevenir el comportamiento predeterminado del enlace
+            const link = document.getElementById('dynamic-link').href; // Obtén el href dinámico
+            const iframeContainer = document.getElementById('fullscreen-iframe-container');
+            const iframe = document.getElementById('fullscreen-iframe');
+
+            iframe.src = link; // Establecer la URL en el iframe
+            iframeContainer.style.display = 'block'; // Mostrar el contenedor del iframe
+
+            // Fondo blanco para el contenedor del iframe
+            iframeContainer.style.backgroundColor = 'white'; // O 'transparent' si prefieres el fondo transparente
+            iframe.style.backgroundColor = 'transparent'; // Fondo transparente en el iframe
+        }
+
+        function closeFullscreenIframe() {
+            const iframeContainer = document.getElementById('fullscreen-iframe-container');
+            const iframe = document.getElementById('fullscreen-iframe');
+
+            iframe.src = ''; // Limpiar la URL del iframe
+            iframeContainer.style.display = 'none'; // Ocultar el contenedor del iframe
+        }
+    </script>
+
 
     <script>
 

@@ -56,7 +56,7 @@
         }
 
         .title {
-            font-size: 8px;
+            font-size: 10px;
             color: var(--text-color);
             font-weight: bold;
             margin-top: 5px;
@@ -64,7 +64,8 @@
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
         }
 
-        .button, .btn {
+        .button,
+        .btn {
             display: inline-block;
             padding: 15px 30px;
             font-size: 20px;
@@ -79,7 +80,8 @@
             transition: background 0.3s;
         }
 
-        .button:hover, .btn:hover {
+        .button:hover,
+        .btn:hover {
             background-color: #1565c0;
         }
 
@@ -131,17 +133,22 @@
         <div class="overlay">
             <div id="container"></div>
             <div class="title">I N G E N I E R I A</div>
-            <a href="https://calculadoradeahorroenergetico.duckdns.org/" class="button">Explora nuestra colección de documentos técnicos y personalízalos en línea de forma rápida y sencilla.</a>
+            <a href="https://calculadoradeahorroenergetico.duckdns.org/" class="button">Explora nuestra colección de
+                documentos técnicos y personalízalos en línea de forma rápida y sencilla.</a>
         </div>
     </div>
 
     <footer>
         <p>&copy; 2025 <span id="web1"></span></p>
         <p>
-            <a href="#" onclick="openModal('modalPolitica', event)" style="color: white; text-decoration: underline;">Política de privacidad</a> |
-            <a href="#" onclick="openModal('modalTerminos', event)" style="color:white; text-decoration: underline;">Términos de uso</a> |
-            <a href="#" onclick="openModal('modalAcercade', event)" style="color: white; text-decoration: underline;">Contacto</a> |
-            <a href="#" onclick="openModal('modal_', event)" style="color: var(--primary-color); text-decoration: underline;">.</a>
+            <a href="#" onclick="openModal('modalPolitica', event)"
+                style="color: white; text-decoration: underline;">Política de privacidad</a> |
+            <a href="#" onclick="openModal('modalTerminos', event)"
+                style="color:white; text-decoration: underline;">Términos de uso</a> |
+            <a href="#" onclick="openModal('modalAcercade', event)"
+                style="color: white; text-decoration: underline;">Contacto</a> |
+            <a href="#" onclick="openModal('modal_', event)"
+                style="color: var(--primary-color); text-decoration: underline;">.</a>
         </p>
     </footer>
 
@@ -335,29 +342,36 @@
     </div>
 
     <script>
-        // Crear el span principal
-        const mainSpan = document.createElement("span");
-        mainSpan.style.border = "1px solid white";
-        mainSpan.style.padding = "2px 1px";
-        mainSpan.style.color = "white";
-        mainSpan.style.fontSize = "24px";
+// Crear el span principal
+const mainSpan = document.createElement("span");
+mainSpan.style.border = "1px solid white";
+mainSpan.style.padding = "2px 1px";
+mainSpan.style.color = "white";
+mainSpan.style.fontSize = "24px";
+mainSpan.style.fontFamily = "Arial, sans-serif"; // Cambiar la fuente
+mainSpan.style.fontWeight = "700"; // Negrita
+mainSpan.style.letterSpacing = ".3rem"; // Espaciado entre letras
 
-        // Crear el texto "TEC"
-        const textNode = document.createTextNode("TEC");
+// Crear el texto "TEC"
+const textNode = document.createTextNode("TEC");
 
-        // Crear el span interno para la "I"
-        const innerSpan = document.createElement("span");
-        innerSpan.style.color = "#1976D2";
-        innerSpan.style.backgroundColor = "white";
-        innerSpan.style.padding = "0 2px";
-        innerSpan.textContent = "I";
+// Crear el span interno para la "I"
+const innerSpan = document.createElement("span");
+innerSpan.style.color = "#1976D2";
+innerSpan.style.backgroundColor = "white";
+innerSpan.style.padding = "0 2px";
+innerSpan.style.fontFamily = "Arial, sans-serif"; // Asegurar la misma fuente
+innerSpan.style.fontWeight = "700"; // Negrita
+innerSpan.style.letterSpacing = ".3rem"; // Espaciado entre letras
+innerSpan.textContent = "I";
 
-        // Insertar los elementos en el DOM
-        mainSpan.appendChild(textNode);
-        mainSpan.appendChild(innerSpan);
+// Insertar los elementos en el DOM
+mainSpan.appendChild(textNode);
+mainSpan.appendChild(innerSpan);
 
-        // Agregarlo dentro del div con id "container"
-        document.getElementById("container").appendChild(mainSpan);
+// Agregarlo dentro del div con id "container"
+document.getElementById("container").appendChild(mainSpan);
+
 
         // Cargar imágenes
         const images = Array(40).fill().map((_, i) => `img${(i % 5) + 1}.png`);
@@ -397,36 +411,36 @@
 
 
 
-<script>
-    window.web = "TECI";
-    var initials = web.match(/[A-Z]/g)?.join("").slice(0, 2) || "A";
-    generateFavicon(initials);
-    document.title = web; // Asignar dinámicamente el título
+    <script>
+        window.web = "TECI";
+        var initials = web.match(/[A-Z]/g)?.join("").slice(0, 2) || "A";
+        generateFavicon(initials);
+        document.title = web; // Asignar dinámicamente el título
 
-    // Función para generar el favicon
-    function generateFavicon(initials) {
-      var canvas = document.createElement('canvas');
-      var context = canvas.getContext('2d');
+        // Función para generar el favicon
+        function generateFavicon(initials) {
+            var canvas = document.createElement('canvas');
+            var context = canvas.getContext('2d');
 
-      // Usar las iniciales de la variable 'web'
-      var text = initials;
+            // Usar las iniciales de la variable 'web'
+            var text = initials;
 
-      // Configuración del tamaño del canvas y del texto
-      canvas.width = 64;
-      canvas.height = 64;
-      context.font = "55px sans-serif"; // Tamaño del texto
-      context.textAlign = "center";
-      context.textBaseline = "middle";
-      context.fillStyle = "blue"; // Color del texto
-      context.fillText(text, canvas.width / 2, canvas.height / 2);
+            // Configuración del tamaño del canvas y del texto
+            canvas.width = 64;
+            canvas.height = 64;
+            context.font = "55px sans-serif"; // Tamaño del texto
+            context.textAlign = "center";
+            context.textBaseline = "middle";
+            context.fillStyle = "blue"; // Color del texto
+            context.fillText(text, canvas.width / 2, canvas.height / 2);
 
-      // Crear un enlace <link> para usarlo como favicon
-      var link = document.createElement('link');
-      link.rel = 'icon';
-      link.href = canvas.toDataURL('image/png'); // Convertir el canvas a una imagen PNG
-      document.head.appendChild(link);
-    }
-  </script>
+            // Crear un enlace <link> para usarlo como favicon
+            var link = document.createElement('link');
+            link.rel = 'icon';
+            link.href = canvas.toDataURL('image/png'); // Convertir el canvas a una imagen PNG
+            document.head.appendChild(link);
+        }
+    </script>
 </body>
 
 </html>

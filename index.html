@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collage de Imágenes</title>
+    <style>
+        :root {
+            --primary-color: #1976D2;
+            --background-color: #6f4f37;
+            --text-color: white;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: var(--background-color);
+            overflow: hidden;
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .collage {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .collage img {
+            position: absolute;
+            width: 20vw; /* Ajustamos a un tamaño relativo al viewport */
+            height: auto;
+            max-width: 400px; /* Limitar el tamaño máximo */
+            max-height: 400px;
+            transition: transform 0.3s;
+        }
+
+        .collage img:hover {
+            transform: scale(1.5);
+        }
+
+        .overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            background: rgba(25, 118, 210, 0.8);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            width: 90%;
+        }
+
+        .title {
+            font-size: 2em; /* Tamaño relativo */
+            color: var(--text-color);
+            font-weight: bold;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        .button,
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1.2em; /* Ajustamos el tamaño del botón */
+            color: var(--text-color);
+            background-color: var(--primary-color);
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+            transition: background 0.3s;
+        }
+
+        .button:hover,
+        .btn:hover {
+            background-color: #1565c0;
+        }
+
+        .subtitle {
+            font-size: 1.5em; /* Tamaño relativo */
+            color: var(--text-color);
+            margin-top: 10px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            padding: 10px;
+            background: rgba(25, 118, 210, 0.8);
+            color: var(--text-color);
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            width: 80%;
+            max-width: 500px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .title {
+                font-size: 1.5em; /* Reducir tamaño en pantallas pequeñas */
+            }
+
+            .button {
+                font-size: 1em; /* Ajustar tamaño de los botones */
+                padding: 10px 20px;
+            }
+
+            .collage img {
+                width: 40vw; /* Ajustar el tamaño de las imágenes */
+            }
+
+            .overlay {
+                padding: 10px;
+                width: 80%;
+            }
+
+            footer p {
+                font-size: 0.9em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .title {
+                font-size: 1.2em; /* Más pequeño en pantallas muy pequeñas */
+            }
+
+            .button {
+                font-size: 0.9em;
+                padding: 8px 16px;
+            }
+
+            .collage img {
+                width: 50vw; /* Aumentar el tamaño relativo de las imágenes */
+            }
+
+            .overlay {
+                width: 90%;
+            }
+
+            footer p {
+                font-size: 0.8em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="collage" id="collage">
+        <div class="overlay">
+            <div id="container"></div>
+            <div class="title">I N G E N I E R O S</div>
+            <!-- <div class="title">Técnicas Energéticas y Control Industrial</div> -->
+
+            <a href="https://calculadoradeahorroenergetico.duckdns.org/" class="button">Explora nuestra colección de
+                documentos técnicos y personalízalos en línea de forma rápida y sencilla.</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 <span id="web1"></span></p>
+        <p>
+            <a href="#" onclick="openModal('modalPolitica', event)"
+                style="color: white; text-decoration: underline;">Política de privacidad</a> |
+            <a href="#" onclick="openModal('modalTerminos', event)"
+                style="color:white; text-decoration: underline;">Términos de uso</a> |
+            <a href="#" onclick="openModal('modalAcercade', event)"
+                style="color: white; text-decoration: underline;">Contacto</a> |
+            <a href="#" onclick="openModal('modal_', event)"
+                style="color: var(--primary-color); text-decoration: underline;">.</a>
+        </p>
+    </footer>
+
+    <!-- Modales -->
+    <div id="modal_" class="modal">
+        <div class="modal-content">
+            <h1>Ibercae</h1>
+            <a href="https://teci.es/">tejado.solar</a><br>
+            <a href="https://tejado.solar/">tejado.solar</a><br>
+            <a href="https://asolear.com/">asolear.com</a><br>
+            <a href="https://mecae.es/">mecae.es</a><br>
+            <a href="https://calcae.es/">calcae.es</a><br>
+            <a href="https://electro.casa/">electro.casa</a><br>
+            <a href="https://wattbucket.com/">wattbucket.com</a><br>
+            <hr>
+            <button onclick="closeModal('modal_')" class="btn">Cerrar</button>
+        </div>
+    </div>
+
+    <script>
+        // Crear el span principal
+        const mainSpan = document.createElement("span");
+        mainSpan.style.border = "1px solid white";
+        mainSpan.style.padding = "2px 1px";
+        mainSpan.style.color = "white";
+        mainSpan.style.fontSize = "24px";
+        mainSpan.style.fontFamily = "Arial, sans-serif"; // Cambiar la fuente
+        mainSpan.style.fontWeight = "700"; // Negrita
+        mainSpan.style.letterSpacing = ".3rem"; // Espaciado entre letras
+
+        // Crear el texto "TEC"
+        const textNode = document.createTextNode("TEC");
+
+        // Crear el span interno para la "I"
+        const innerSpan = document.createElement("span");
+        innerSpan.style.color = "#1976D2";
+        innerSpan.style.backgroundColor = "white";
+        innerSpan.style.padding = "0 2px";
+        innerSpan.style.fontFamily = "Arial, sans-serif"; // Asegurar la misma fuente
+        innerSpan.style.fontWeight = "700"; // Negrita
+        innerSpan.style.letterSpacing = ".3rem"; // Espaciado entre letras
+        innerSpan.textContent = "I";
+
+        // Insertar los elementos en el DOM
+        mainSpan.appendChild(textNode);
+        mainSpan.appendChild(innerSpan);
+
+        // Agregarlo dentro del div con id "container"
+        document.getElementById("container").appendChild(mainSpan);
+
+        // Cargar imágenes
+        const images = Array(40).fill().map((_, i) => `img${(i % 5) + 1}.png`);
+        const collageContainer = document.getElementById("collage");
+
+        images.forEach(src => {
+            const img = document.createElement("img");
+            img.src = src;
+            img.style.left = `${Math.random() * 70 - 10}%`;
+            img.style.top = `${Math.random() * 70 - 10}%`;
+            img.style.transform = `rotate(${Math.random() * 150 - 70}deg)`;
+            collageContainer.appendChild(img);
+        });
+
+        // Manejo de modales
+        function openModal(modalId, event) {
+            event.preventDefault();
+            document.getElementById(modalId).style.display = 'flex';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        // Cookies
+        window.onload = function () {
+            if (!localStorage.getItem('cookiesAccepted')) {
+                document.getElementById('modalCookies').style.display = 'flex';
+            }
+        };
+
+        function acceptCookies() {
+            localStorage.setItem('cookiesAccepted', 'true');
+            closeModal('modalCookies');
+        }
+    </script>
+
+</body>
+
+</html>

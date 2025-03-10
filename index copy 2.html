@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collage de Imágenes</title>
+    <style>
+        :root {
+            --primary-color: #1976D2;
+            --background-color: #6f4f37;
+            --text-color: white;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: var(--background-color);
+            overflow: hidden;
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .collage {
+            position: relative;
+            width: 150vw;
+            height: 150vh;
+        }
+
+        .collage img {
+            position: absolute;
+            max-width: 900px;
+            max-height: 900px;
+            transition: transform 0.3s;
+        }
+
+        .collage img:hover {
+            transform: scale(1.2);
+        }
+
+        .overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            background: rgba(25, 118, 210, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .title {
+            font-size: 10px;
+            color: var(--text-color);
+            font-weight: bold;
+            margin-top: 5px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        .button,
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 20px;
+            color: var(--text-color);
+            background-color: var(--primary-color);
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+            transition: background 0.3s;
+        }
+
+        .button:hover,
+        .btn:hover {
+            background-color: #1565c0;
+        }
+
+        .subtitle {
+            font-size: 20px;
+            color: var(--text-color);
+            margin-top: 10px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            padding: 10px;
+            background: rgba(25, 118, 210, 0.8);
+            color: var(--text-color);
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            width: 80%;
+            max-width: 500px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="collage" id="collage">
+        <div class="overlay">
+            <div id="container"></div>
+            <div class="title">I N G E N I E R O S</div>
+            <!-- <div class="title">Técnicas Energéticas y Control Industrial</div> -->
+            
+            <a href="https://calculadoradeahorroenergetico.duckdns.org/" class="button">Explora nuestra colección de
+                documentos técnicos y personalízalos en línea de forma rápida y sencilla.</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 <span id="web1"></span></p>
+        <p>
+            <a href="#" onclick="openModal('modalPolitica', event)"
+                style="color: white; text-decoration: underline;">Política de privacidad</a> |
+            <a href="#" onclick="openModal('modalTerminos', event)"
+                style="color:white; text-decoration: underline;">Términos de uso</a> |
+            <a href="#" onclick="openModal('modalAcercade', event)"
+                style="color: white; text-decoration: underline;">Contacto</a> |
+            <a href="#" onclick="openModal('modal_', event)"
+                style="color: var(--primary-color); text-decoration: underline;">.</a>
+        </p>
+    </footer>
+
+    <!-- Modales -->
+    <div id="modal_" class="modal">
+        <div class="modal-content">
+            <h1>Ibercae</h1>
+            <a href="https://teci.es/">tejado.solar</a><br>
+            <a href="https://tejado.solar/">tejado.solar</a><br>
+            <a href="https://asolear.com/">asolear.com</a><br>
+            <a href="https://mecae.es/">mecae.es</a><br>
+            <a href="https://calcae.es/">calcae.es</a><br>
+            <a href="https://electro.casa/">electro.casa</a><br>
+            <a href="https://wattbucket.com/">wattbucket.com</a><br>
+            <hr>
+            <button onclick="closeModal('modal_')" class="btn">Cerrar</button>
+        </div>
+    </div>
+
+    <div id="modalTerminos" class="modal">
+        <div class="modal-content">
+            <h1>Términos de Uso</h1>
+            <p><strong>1. Aceptación de los Términos</strong><br>
+                Al acceder y utilizar este sitio web (en adelante "el Sitio"), el usuario acepta estar sujeto a los
+                siguientes Términos de Uso. Si no está de acuerdo con alguno de estos términos, le pedimos que se
+                abstenga de utilizar el Sitio.</p>
+
+            <p><strong>2. Uso del Sitio</strong><br>
+                El usuario se compromete a utilizar el Sitio conforme a la legislación aplicable, de manera responsable
+                y respetuosa con los derechos de propiedad intelectual e industrial de la empresa y de terceros.</p>
+
+            <p><strong>3. Propiedad Intelectual</strong><br>
+                Todo el contenido del Sitio, incluidos textos, imágenes, gráficos, logos, iconos, software y demás
+                materiales, está protegido por derechos de propiedad intelectual e industrial. Queda prohibida su
+                reproducción, distribución, modificación o explotación sin autorización expresa.</p>
+
+            <p><strong>4. Responsabilidad</strong><br>
+                El Sitio no será responsable de ningún daño directo, indirecto o incidental que surja del uso o
+                imposibilidad de uso de este, incluyendo fallos técnicos, virus, pérdida de datos o ingresos.</p>
+
+            <p><strong>5. Enlaces a Terceros</strong><br>
+                El Sitio puede contener enlaces a sitios web de terceros. Estos enlaces se proporcionan para
+                conveniencia del usuario, pero no implican ningún tipo de responsabilidad sobre el contenido o las
+                políticas de privacidad de dichos sitios.</p>
+
+            <p><strong>6. Modificaciones de los Términos</strong><br>
+                Nos reservamos el derecho de modificar estos Términos de Uso en cualquier momento. Cualquier cambio será
+                publicado en esta página, y la continuación del uso del Sitio por parte del usuario constituye la
+                aceptación de dichos cambios.</p>
+
+            <p><strong>7. Ley Aplicable y Jurisdicción</strong><br>
+                Estos Términos se rigen por las leyes de España. Cualquier disputa relacionada con el uso del Sitio será
+                resuelta por los tribunales competentes de Málaga.</p>
+            <!-- Resto del contenido -->
+            <hr>
+            <button onclick="closeModal('modalTerminos')" class="btn">Cerrar</button>
+        </div>
+    </div>
+
+    <div id="modalPolitica" class="modal">
+        <div class="modal-content">
+            <h1>Política de Privacidad</h1>
+            <p><strong>1. Introducción</strong><br>
+                La protección de su privacidad es importante para nosotros. Nos comprometemos a proteger la información
+                personal que nos proporciona. Esta Política de Privacidad explica cómo recopilamos, usamos y protegemos
+                sus datos.</p>
+
+            <p><strong>2. Información que Recopilamos</strong><br>
+                Recopilamos información personal, como nombre, dirección de correo electrónico, dirección IP y datos de
+                navegación, cuando el usuario interactúa con el Sitio.</p>
+
+            <p><strong>3. Uso de la Información</strong><br>
+                La información recopilada se utiliza para mejorar nuestros servicios, personalizar la experiencia del
+                usuario, y enviarle información relevante sobre nuestro Sitio o productos.</p>
+
+            <p><strong>4. Protección de la Información</strong><br>
+                Implementamos medidas de seguridad para proteger la información personal contra accesos no autorizados,
+                alteración, divulgación o destrucción.</p>
+
+            <p><strong>5. Compartir la Información</strong><br>
+                No compartimos su información personal con terceros sin su consentimiento, excepto en los casos en que
+                sea necesario para cumplir con la ley o con un requerimiento legal.</p>
+
+            <p><strong>6. Modificaciones de la Política de Privacidad</strong><br>
+                Nos reservamos el derecho de modificar esta Política de Privacidad en cualquier momento. Cualquier
+                cambio será publicado en esta página.</p>
+            <!-- Resto del contenido -->
+            <button onclick="closeModal('modalPolitica')" class="btn">Cerrar</button>
+        </div>
+    </div>
+
+    <div id="modalAcercade" class="modal">
+        <div class="modal-content">
+            <h1>Contacto</h1>
+
+            <p><strong>Dirección:</strong> C. Moby Dick, 30. 29004 Málaga </p>
+            <p><strong>Teléfono:</strong><a href="tel:+34951733491">+34 951 733 491</a></p>
+            <p><strong>Email:</strong><a href="mailto:info@ibercae.com">info@ibercae.com</a></p>
+            </br>
+
+            <h1>Equipo</h1>
+
+            <p>
+                Somos un equipo de técnicos e ingenieros apasionados por la eficiencia energética, las energías
+                renovables y la
+                protección del medio ambiente.</p>
+
+            <p>
+                Provenimos de diversas generaciones, recien titulados y seniors con diversas trayectorias profesionales,
+                lo que nos permite combinar experiencia y nuevas ideas para ofrecer soluciones innovadoras y
+                sostenibles.</p>
+
+            <p>
+                Nuestro compromiso es claro: contribuir a un futuro más verde mediante proyectos que optimicen el uso de
+                los recursos energéticos y
+                reduzcan el impacto ambiental. Creemos que el trabajo en equipo y el enfoque interdisciplinario
+                son esenciales para enfrentar los desafíos energéticos de hoy y de mañana.</p>
+
+            <p>
+                Si buscas un aliado comprometido con la sostenibilidad y la tecnología al servicio del medio ambiente,
+                estás en el lugar adecuado.</p>
+
+
+            <p>
+
+                Técnicas de Evaluación de Certificación Industrial (TECI) desarrolla los procedimientos y metodologías
+                utilizadas para evaluar el cumplimiento de estándares y normativas en el ámbito industrial,
+                específicamente relacionados con la eficiencia energética, seguridad, y sostenibilidad. Estos procesos
+                se realizan con el fin de obtener certificaciones que validen que una instalación, proceso o producto
+                cumple con requisitos técnicos y medioambientales.
+
+            </p>
+            <p>
+                Algunos aspectos clave en estas técnicas son:
+            </p>
+            <p>
+
+                Evaluación de Cumplimiento Normativo: Análisis de los estándares industriales aplicables (como ISO, UNE,
+                entre otros) relacionados con la eficiencia energética, calidad, seguridad y el impacto ambiental de los
+                procesos industriales.
+            </p>
+            <p>
+
+
+                Auditorías Energéticas: Procedimientos para medir y analizar el consumo energético en instalaciones
+                industriales, identificar áreas de mejora y proponer soluciones para optimizar el uso de la energía.
+            </p>
+            <p>
+
+                Certificación en Gestión Energética: Evaluación para obtener certificaciones como ISO 50001, que
+                demuestra la implementación de un sistema de gestión de la energía efectivo en la organización.
+            </p>
+            <p>
+
+                Evaluación del Impacto Ambiental: Estudio del impacto que las actividades industriales tienen sobre el
+                medio ambiente, que incluye la medición de emisiones, consumo de recursos naturales, y otros factores
+                relevantes. Las certificaciones medioambientales, como la ISO 14001, pueden ser el resultado de este
+                tipo de evaluación.
+            </p>
+            <p>
+
+                Evaluación de la Eficiencia de los Procesos Industriales: Análisis detallado de los procesos de
+                producción para identificar posibles ineficiencias o puntos de mejora que permitan reducir costos y
+                mejorar el rendimiento, a la vez que se cumplen los estándares de sostenibilidad y eficiencia
+                energética.
+            </p>
+            <p>
+
+                Tramitación de Licencias y Certificados: Procedimiento para gestionar y obtener las licencias necesarias
+                para operar dentro de la legalidad, lo que incluye la evaluación de los documentos, la tramitación de
+                permisos de funcionamiento y la obtención de los certificados que avalen el cumplimiento de normativas.
+            </p>
+            <p>
+
+                En resumen, TECI implementa las técnicas y procesos utilizados en la evaluación y certificación de la
+                industria para asegurar que los estándares de eficiencia energética, seguridad y sostenibilidad sean
+                cumplidos, permitiendo así que las empresas y particulares obtengan las certificaciones necesarias para
+                operar y ser reconocidas por su cumplimiento normativo.</p>
+
+
+            <button onclick="closeModal('modalAcercade')" class="btn">Cerrar</button>
+        </div>
+    </div>
+
+    <div id="modalCookies" class="modal">
+        <div class="modal-content">
+            <h2>Política de Cookies</h2>
+            <p>Este sitio web usa cookies para mejorar su experiencia.</p>
+            <button onclick="acceptCookies()" class="btn">Aceptar</button>
+        </div>
+    </div>
+
+    <script>
+// Crear el span principal
+const mainSpan = document.createElement("span");
+mainSpan.style.border = "1px solid white";
+mainSpan.style.padding = "2px 1px";
+mainSpan.style.color = "white";
+mainSpan.style.fontSize = "24px";
+mainSpan.style.fontFamily = "Arial, sans-serif"; // Cambiar la fuente
+mainSpan.style.fontWeight = "700"; // Negrita
+mainSpan.style.letterSpacing = ".3rem"; // Espaciado entre letras
+
+// Crear el texto "TEC"
+const textNode = document.createTextNode("TEC");
+
+// Crear el span interno para la "I"
+const innerSpan = document.createElement("span");
+innerSpan.style.color = "#1976D2";
+innerSpan.style.backgroundColor = "white";
+innerSpan.style.padding = "0 2px";
+innerSpan.style.fontFamily = "Arial, sans-serif"; // Asegurar la misma fuente
+innerSpan.style.fontWeight = "700"; // Negrita
+innerSpan.style.letterSpacing = ".3rem"; // Espaciado entre letras
+innerSpan.textContent = "I";
+
+// Insertar los elementos en el DOM
+mainSpan.appendChild(textNode);
+mainSpan.appendChild(innerSpan);
+
+// Agregarlo dentro del div con id "container"
+document.getElementById("container").appendChild(mainSpan);
+
+
+        // Cargar imágenes
+        const images = Array(40).fill().map((_, i) => `img${(i % 5) + 1}.png`);
+        const collageContainer = document.getElementById("collage");
+
+        images.forEach(src => {
+            const img = document.createElement("img");
+            img.src = src;
+            img.style.left = `${Math.random() * 70 - 10}%`;
+            img.style.top = `${Math.random() * 70 - 10}%`;
+            img.style.transform = `rotate(${Math.random() * 150 - 70}deg)`;
+            collageContainer.appendChild(img);
+        });
+
+        // Manejo de modales
+        function openModal(modalId, event) {
+            event.preventDefault();
+            document.getElementById(modalId).style.display = 'flex';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        // Cookies
+        window.onload = function () {
+            if (!localStorage.getItem('cookiesAccepted')) {
+                document.getElementById('modalCookies').style.display = 'flex';
+            }
+        };
+
+        function acceptCookies() {
+            localStorage.setItem('cookiesAccepted', 'true');
+            closeModal('modalCookies');
+        }
+    </script>
+
+
+
+    <script>
+        window.web = "TECI";
+        var initials = web.match(/[A-Z]/g)?.join("").slice(0, 2) || "A";
+        generateFavicon(initials);
+        document.title = web; // Asignar dinámicamente el título
+
+        // Función para generar el favicon
+        function generateFavicon(initials) {
+            var canvas = document.createElement('canvas');
+            var context = canvas.getContext('2d');
+
+            // Usar las iniciales de la variable 'web'
+            var text = initials;
+
+            // Configuración del tamaño del canvas y del texto
+            canvas.width = 64;
+            canvas.height = 64;
+            context.font = "55px sans-serif"; // Tamaño del texto
+            context.textAlign = "center";
+            context.textBaseline = "middle";
+            context.fillStyle = "blue"; // Color del texto
+            context.fillText(text, canvas.width / 2, canvas.height / 2);
+
+            // Crear un enlace <link> para usarlo como favicon
+            var link = document.createElement('link');
+            link.rel = 'icon';
+            link.href = canvas.toDataURL('image/png'); // Convertir el canvas a una imagen PNG
+            document.head.appendChild(link);
+        }
+    </script>
+</body>
+
+</html>
